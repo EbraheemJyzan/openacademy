@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+
+     <record model="ir.ui.view" id="event_management_inherit">
+      <field name="name">EventManagement Inherit</field>
+      <field name="model">event.event</field>
+      <field name="inherit_id" ref="event.view_event_form"/>
+      <field name="arch" type="xml">
+            <field name="address_id" position="after">
+                <field name="event"/>
+            </field>
+            <field name="organizer_id" position="attributes">
+                <attribute name="invisible">1</attribute>
+            </field>
+            <page name="event_communication" position="after">
+<!--            <notebook  position="inside">-->
+                <page  string="Material" name="material">
+                </page>
+<!--            </notebook>-->
+          </page>
+      </field>
+    </record>
+<!--    =====================================================================        -->
+<!--    <record model="ir.ui.view" id="event_management_tree_view">-->
+<!--        <field name="name">event_management.form</field>-->
+<!--        <field name="model">organizer</field>-->
+<!--        <field name="arch" type="xml">-->
+<!--            <tree string="Care Card App">-->
+<!--                <field name="first_name"/>-->
+<!--                <field name="last_name"/>-->
+<!--                <field name="phon"/>-->
+<!--                <field name="email"/>-->
+<!--                <field name="mr"/>-->
+<!--                <field name="mrs"/>-->
+<!--            </tree>-->
+<!--        </field>-->
+<!--    </record>-->
+
+
+         <record  model="ir.actions.act_window" id="organizer_view_action">
+            <field name="name">New Organizer</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">organizer</field>
+            <field name="view_mode">tree,form</field>
+            <field name="help" type="html">
+                <p class="o_view_nocontent_smiling_face">Create the first organizer </p>
+            </field>
+     </record>
+
+
+<!--    tree organizer view    -->
+        <record model="ir.ui.view" id="organizer_tree_view">
+        <field name="name">organizer.tree</field>
+        <field name="model">organizer</field>
+        <field name="arch" type="xml">
+            <tree string="Organizer Tree">
+                <field name="first_name"/>
+                <field name="last_name"/>
+                <field name="mr"/>
+                <field name="mrs"/>
+            </tree>
+        </field>
+    </record>
+
+
+
+    <menuitem id="organizer_main_menu"
+              name="Organizer"
+              parent="event.event_main_menu"
+              />
+    <menuitem id="organizer_menu"
+              name="New Organizer"
+              parent="organizer_main_menu"
+              action="organizer_view_action"
+              />
+
+
+</odoo>
