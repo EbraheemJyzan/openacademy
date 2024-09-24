@@ -15,6 +15,13 @@
             <page name="event_communication" position="after">
 <!--            <notebook  position="inside">-->
                 <page  string="Material" name="material">
+                    <page  string="Material" name="material">
+                    <field name="event_relation">
+                        <tree>
+                            <field name="name" widget="many2many,tage" />
+                        </tree>
+                    </field>
+                </page>
                 </page>
 <!--            </notebook>-->
           </page>
