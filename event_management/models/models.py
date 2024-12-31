@@ -21,6 +21,9 @@ class organizer(models.Model):
     mrs = fields.Boolean(String='Mrs.')
     event_organizer = fields.Many2one('event.event','event_organizer',)
 
+    
+    def hala(self):
+        print('uuuuuuuuuuuuuuuuuuuuu')
 #     name = fields.Char()
 #     value = fields.Integer()
 #     value2 = fields.Float(compute="_value_pc", store=True)
